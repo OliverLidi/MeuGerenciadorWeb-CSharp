@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QMLM5qihoYg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lidia\\MeuPrimeiroProjeto\\MeuGerenciadorWeb\\MeuGerenciadorWeb.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lidia\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.12\\microsoft.aspnetcore.app.internal.assets.10.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,123 @@
+﻿@page "/weather"
+@attribute [StreamRendering]
+
+<PageTitle>Histórico de Vendas</PageTitle>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h2 class="text-primary fw-bold mb-1">📈 Relatório de Vendas do Sistema</h2>
+            <p class="text-muted mb-0">Histórico detalhado das últimas saídas de produtos no estoque.</p>
+        </div>
+        <button class="btn btn-outline-primary" @onclick="GerarNovoRelatorio">
+            🔄 Atualizar Relatório
+        </button>
+    </div>
+
+    @if (vendas == null)
+    {
+        <div class="alert alert-info">
+            <em>Carregando histórico de vendas...</em>
+        </div>
+    }
+    else
+    {
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card bg-primary text-white shadow-sm border-0">
+                    <div class="card-body">
+                        <h6 class="text-uppercase fw-semibold opacity-75">Faturamento Total do Período</h6>
+                        <h3 class="fw-bold mb-0">@vendas.Sum(v => v.ValorTotal).ToString("C2")</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-success text-white shadow-sm border-0">
+                    <div class="card-body">
+                        <h6 class="text-uppercase fw-semibold opacity-75">Total de Pedidos Processados</h6>
+                        <h3 class="fw-bold mb-0">@vendas.Count <small class="fs-6 fw-normal">pedidos</small></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Data do Pedido</th>
+                                <th>Produto Vendido</th>
+                                <th class="text-center">Quantidade</th>
+                                <th class="text-end">Preço Un.</th>
+                                <th class="text-end">Valor Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var venda in vendas)
+                            {
+                                <tr>
+                                    <td>@venda.Data.ToShortDateString()</td>
+                                    <td class="fw-bold">@venda.Produto</td>
+                                    <td class="text-center">
+                                        <span class="badge bg-secondary">@venda.Quantidade un.</span>
+                                    </td>
+                                    <td class="text-end">@venda.PrecoUnitario.ToString("C2")</td>
+                                    <td class="text-end fw-bold text-success">@venda.ValorTotal.ToString("C2")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private List<VendaItem>? vendas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(300);
+        CarregarVendas();
+    }
+
+    private void GerarNovoRelatorio()
+    {
+        CarregarVendas();
+    }
+
+    private void CarregarVendas()
+    {
+        var produtosDisponiveis = new[] { "Teclado Mecânico RGB", "Mouse Gamer 16000 DPI", "Monitor 144Hz IPS", "Headset Surround 7.1", "Cadeira Ergonômica" };
+        var precos = new[] { 250.00m, 120.00m, 1299.90m, 350.00m, 890.00m };
+
+        var dataAtual = DateOnly.FromDateTime(DateTime.Now);
+
+        vendas = Enumerable.Range(1, 5).Select(index =>
+        {
+            int produtoIndex = Random.Shared.Next(produtosDisponiveis.Length);
+            int qtd = Random.Shared.Next(1, 5);
+            decimal preco = precos[produtoIndex];
+
+            return new VendaItem
+            {
+                Data = dataAtual.AddDays(-index),
+                Produto = produtosDisponiveis[produtoIndex],
+                Quantidade = qtd,
+                PrecoUnitario = preco
+            };
+        }).ToList();
+    }
+
+    private class VendaItem
+    {
+        public DateOnly Data { get; set; }
+        public string Produto { get; set; } = string.Empty;
+        public int Quantidade { get; set; }
+        public decimal PrecoUnitario { get; set; }
+        public decimal ValorTotal => Quantidade * PrecoUnitario;
+    }
+}

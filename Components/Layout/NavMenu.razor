@@ -1,0 +1,25 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="">📊 Gestão de Estoque</a>
+    </div>
+</div>
+
+<input type="checkbox" id="navbar-toggler" class="navbar-toggler-icon" />
+
+<div class="nav-scrollable" onclick="document.getElementById('navbar-toggler').click()">
+    <nav class="flex-column">
+        <!-- ÍTEM INÍCIO (PAINEL PRINCIPAL) -->
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Início (Estoque)
+            </NavLink>
+        </div>
+
+        <!-- ÍTEM RELATÓRIO DE VENDAS (Substituiu a Previsão do Tempo) -->
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="weather">
+                <span class="bi bi-graph-up-nav-menu" aria-hidden="true"></span> Relatório de Vendas
+            </NavLink>
+        </div>
+    </nav>
+</div>
