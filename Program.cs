@@ -1,11 +1,18 @@
+using MeuGerenciadorWeb;
+using MeuGerenciadorWeb.Components;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona os serviços do Blazor com suporte a componentes interativos
+// Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+// Registro do nosso servico de produtos
+builder.Services.AddSingleton<ProdutoService>();
+
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
@@ -13,12 +20,11 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseAntiforgery();
 
 app.MapStaticAssets();
-
-// Habilita a renderização de componentes interativos no servidor
-app.MapRazorComponents<MeuGerenciadorWeb.Components.App>()
+app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.Run();

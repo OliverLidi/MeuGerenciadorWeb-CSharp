@@ -4,9 +4,11 @@ public class Produto
 {
     public int Id { get; set; }
     public string Nome { get; set; } = string.Empty;
-    public int Quantidade { get; set; } = 1;
-    public decimal Preco { get; set; } = 0.00m;
-
-    // Calculado automaticamente
-    public decimal ValorTotal => Quantidade * Preco;
+    public string Categoria { get; set; } = "Geral";
+    public decimal PrecoCusto { get; set; }
+    public decimal PrecoVenda { get; set; }
+    public int QuantidadeEstoque { get; set; }
+    public decimal ValorTotal => PrecoVenda * QuantidadeEstoque;
+    public DateTime DataCriacao { get; set; } = DateTime.Now;
+    public bool Ativo { get; set; } = true;
 }
