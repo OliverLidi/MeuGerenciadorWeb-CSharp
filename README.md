@@ -6,7 +6,7 @@ Um sistema web moderno e responsivo para controle de estoque e monitoramento de 
 
 ## 🚀 Funcionalidades
 
-- **Dashboard Financeiro:** Indicadores do total de itens, valor total acumulado no estoque e variedade de produtos cadastrados.
+- **Dashboard Financeiro:** Indicadores de total de itens, valor total acumulado no estoque e variedade de produtos cadastrados.
 - **Gestão de Produtos (CRUD completo):**
   - Cadastramento de novos produtos com validação de preço e quantidade.
   - Alteração rápida de estoque (botões de incremento `+` e decremento `-`).
@@ -39,6 +39,8 @@ MeuGerenciadorWeb/
 ├── Produto.cs                  # Modelo de dados da aplicação
 ├── Program.cs                  # Configuração dos serviços Blazor
 └── MeuGerenciadorWeb.csproj    # Arquivo de projeto .NET
+
+
 🔧 Como Executar o Projeto Localmente
 Pré-requisitos:
 
@@ -47,7 +49,7 @@ Possuir o .NET SDK instalado na máquina.
 Clonar o repositório:
 
 Bash
-git clone [https://github.com/SEU-USUARIO/MeuGerenciadorWeb.git](https://github.com/SEU-USUARIO/MeuGerenciadorWeb.git)
+git clone [https://github.com/OliverLidi/MeuGerenciadorWeb-CSharp.git](https://github.com/OliverLidi/MeuGerenciadorWeb-CSharp.git)
 Navegar até a pasta do projeto:
 
 Bash
