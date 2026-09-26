@@ -1,58 +1,46 @@
-﻿# 📊 MeuGerenciadorWeb — Sistema de Gestão de Estoque & Vendas
+$readmeContent = @'
+# 📊 Gerenciador de Estoque & Vendas (.NET & React)
 
-Um sistema web moderno e responsivo para controle de estoque e monitoramento de vendas em tempo real, desenvolvido com **C#** e **Blazor (.NET)**.
-
----
+Um sistema web moderno, seguro e responsivo para controle de estoque e monitoramento de produtos, desenvolvido com uma arquitetura Full-Stack separada (**React Vite** no front-end e **.NET Minimal API** no back-end com autenticação **JWT** e base de dados **SQLite**).
 
 ## 🚀 Funcionalidades
 
-- **Dashboard Financeiro:** Indicadores de total de itens, valor total acumulado no estoque e variedade de produtos cadastrados.
-- **Gestão de Produtos (CRUD completo):**
-  - Cadastramento de novos produtos com validação de preço e quantidade.
-  - Alteração rápida de estoque (botões de incremento `+` e decremento `-`).
-  - Remoção de itens da lista.
+- **Autenticação Segura (JWT):** Sistema de login protegido (`admin` / `123456`) que gera tokens validados pelo back-end para acesso às rotas privadas.
+- **Gestão de Produtos (CRUD Completo):**
+  - Cadastramento de novos produtos com validação de preço, quantidade em estoque e status.
+  - Edição de produtos existentes diretamente pela interface.
+  - Exclusão de itens da base de dados.
 - **Filtro & Busca Dinâmica:** Pesquisa instantânea de produtos pelo nome.
-- **Relatório de Vendas:** Visualização do histórico de vendas e faturamento do período.
-- **Interatividade em Tempo Real:** Interface reativa utilizando `InteractiveServer` do Blazor.
-
----
+- **Indicadores em Tempo Real:** Visualização dinâmica do total de produtos encontrados no sistema.
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Linguagem:** C# (.NET)
-- **Framework Web:** Blazor (Server Components)
-- **Interface & Estilização:** HTML5, CSS3, Bootstrap 5
-- **Ferramentas:** Visual Studio Code, Git & GitHub
-
----
+- **Back-end:** C# (.NET Minimal API), Entity Framework Core, SQLite, JWT (JSON Web Tokens)
+- **Front-end:** React, Vite, JavaScript (JSX), CSS moderno
+- **Controle de Versão:** Git e GitHub
 
 ## 📂 Estrutura do Projeto
 
-```text
 MeuGerenciadorWeb/
-├── Components/
-│   ├── Layout/
-│   │   └── NavMenu.razor       # Menu de navegação lateral
-│   └── Pages/
-│       ├── Home.razor          # Painel principal e controle de estoque
-│       └── Weather.razor       # Relatório de vendas
-├── Produto.cs                  # Modelo de dados da aplicação
-├── Program.cs                  # Configuração dos serviços Blazor
+├── frontend/                   # Aplicação React (Vite)
+│   ├── src/
+│   │   ├── App.jsx             # Componente principal e gestor de produtos
+│   │   ├── Login.jsx           # Ecrã de autenticação
+│   │   └── main.jsx            # Ponto de entrada React
+│   └── package.json
+├── Program.cs                  # Configuração da API .NET e rotas protegidas
+├── AppDbContext.cs             # Contexto da Base de Dados SQLite
 └── MeuGerenciadorWeb.csproj    # Arquivo de projeto .NET
 
+## 🔧 Como Executar o Projeto Localmente
 
-🔧 Como Executar o Projeto Localmente
-Pré-requisitos:
+### 1. Pré-requisitos
+- Possuir o **.NET SDK** e o **Node.js** instalados na máquina.
 
-Possuir o .NET SDK instalado na máquina.
-
-Clonar o repositório:
-
-Bash
+### 2. Clonar o repositório
+```bash
 git clone [https://github.com/OliverLidi/MeuGerenciadorWeb-CSharp.git](https://github.com/OliverLidi/MeuGerenciadorWeb-CSharp.git)
-Navegar até a pasta do projeto:
-
-Bash
+cd MeuGerenciadorWeb
 cd MeuGerenciadorWeb
 Executar a aplicação:
 
