@@ -20,17 +20,16 @@ Um sistema web moderno, seguro e responsivo para controle de estoque e monitoram
 - **Controle de Versão:** Git e GitHub
 
 ## 📂 Estrutura do Projeto
-
-MeuGerenciadorWeb/
-├── frontend/                   # Aplicação React (Vite)
-│   ├── src/
-│   │   ├── App.jsx             # Componente principal e gestor de produtos
-│   │   ├── Login.jsx           # Ecrã de autenticação
-│   │   └── main.jsx            # Ponto de entrada React
-│   └── package.json
-├── Program.cs                  # Configuração da API .NET e rotas protegidas
-├── AppDbContext.cs             # Contexto da Base de Dados SQLite
-└── MeuGerenciadorWeb.csproj    # Arquivo de projeto .NET
+MeuGerenciadorWeb/<br>
+├── frontend/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Aplicação React (Vite)<br>
+│ &nbsp;&nbsp;├── src/<br>
+│ &nbsp;&nbsp;│ &nbsp;&nbsp;├── App.jsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Componente principal e gestor de produtos<br>
+│ &nbsp;&nbsp;│ &nbsp;&nbsp;├── Login.jsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Ecrã de autenticação<br>
+│ &nbsp;&nbsp;│ &nbsp;&nbsp;└── main.jsx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Ponto de entrada React<br>
+│ &nbsp;&nbsp;└── package.json<br>
+├── Program.cs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Configuração da API .NET e rotas protegidas<br>
+├── AppDbContext.cs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Contexto da Base de Dados SQLite<br>
+└── MeuGerenciadorWeb.csproj &nbsp;&nbsp;&nbsp;# Arquivo de projeto .NET
 
 ## 🔧 Como Executar o Projeto Localmente
 
